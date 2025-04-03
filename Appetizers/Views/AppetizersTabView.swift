@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  AppetizersTabView.swift
 //  Appetizers
 //
 //  Created by Pasya Sahas on 4/2/25.

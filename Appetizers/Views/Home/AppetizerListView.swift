@@ -16,6 +16,12 @@ struct AppetizerListView: View {
             NavigationStack {
                 List(vm.appetizers) { appetizer in
                     AppetizerCellView(appetizer: appetizer)
+                        .onTapGesture {
+                            withAnimation(.easeInOut) {
+                                vm.isShowingDetail = true
+                                vm.selectedAppetizer = appetizer
+                            }
+                        }
                 }
                 .listStyle(PlainListStyle())
                 .navigationTitle("Appetizers")
@@ -23,6 +29,14 @@ struct AppetizerListView: View {
             .onAppear {
                 vm.getAppetizers()
             }
+            .blur(radius: vm.isShowingDetail ? 20 : 0)
+            .disabled(vm.isShowingDetail)
+            
+            if vm.isShowingDetail {
+                AppetizerDetailView(appetizer: vm.selectedAppetizer!,
+                                    isShowingDetail: $vm.isShowingDetail)
+            }
+            
             if vm.isLoading {
                 ProgressView()
                     .foregroundStyle(.brandPrimary)

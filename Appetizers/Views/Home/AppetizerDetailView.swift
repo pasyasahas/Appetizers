@@ -14,10 +14,12 @@ struct AppetizerDetailView: View {
     
     var body: some View {
         VStack {
+            // Appetizer Image
             AppetizerRemoteImage(urlString: appetizer.imageURL)
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 300, height: 225)
             
+            // Appetizer Details
             VStack {
                 Text(appetizer.name)
                     .font(.title2)
@@ -37,6 +39,7 @@ struct AppetizerDetailView: View {
             
             Spacer()
             
+            // Add to order Button
             Button {
                 print("Tapped")
             } label: {

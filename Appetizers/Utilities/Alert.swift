@@ -29,5 +29,9 @@ struct AlertContext {
                                                 message: "Please ensure all the fields of the form are filled.")
     static let invalidEmail = AlertItem(title: "Invalid Email",
                                                 message: "Please enter a valid email address.")
+    static let userSaveSuccess = AlertItem(title: "Profile saved",
+                                                message: "Your profile information was succesfully saved.")
+    static let invalidUserData = AlertItem(title: "Profile Error",
+                                                message: "There was an error saving or retrieving your profile information.")
     
 }

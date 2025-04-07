@@ -16,15 +16,15 @@ struct AccountView: View {
             Form {
                 // Personal Info Section
                 Section {
-                    TextField("First Name", text: $vm.firstName)
-                    TextField("Last Name", text: $vm.lastName)
-                    TextField("Email", text: $vm.email)
+                    TextField("First Name", text: $vm.user.firstName)
+                    TextField("Last Name", text: $vm.user.lastName)
+                    TextField("Email", text: $vm.user.email)
                         .keyboardType(.emailAddress)
                         .textInputAutocapitalization(.never)
                         .autocorrectionDisabled()
                     
                     DatePicker("Birthday",
-                               selection: $vm.birthday,
+                               selection: $vm.user.birthday,
                                displayedComponents: .date)
                     
                     Button {
@@ -39,14 +39,17 @@ struct AccountView: View {
                 
                 // Requests Section
                 Section {
-                    Toggle("Extra Napins", isOn: $vm.extraNappies)
-                    Toggle("Frequent refils", isOn: $vm.frequentRefills)
+                    Toggle("Extra Napins", isOn: $vm.user.extraNappies)
+                    Toggle("Frequent refils", isOn: $vm.user.frequentRefills)
                 } header: {
                     Text("Requests")
                 }
             }
             .tint(.brandPrimary)
             .navigationTitle("Account")
+        }
+        .onAppear {
+            vm.retriveUser()
         }
         .alert(vm.alert?.title ?? "", isPresented: $vm.alertIsDisplayed) {
             

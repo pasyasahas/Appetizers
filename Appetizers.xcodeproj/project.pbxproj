@@ -14,6 +14,8 @@
 		1525BAB92D9EE675009BBCC0 /* AppetizersListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1525BAB82D9EE675009BBCC0 /* AppetizersListViewModel.swift */; };
 		1525BABB2D9EE887009BBCC0 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1525BABA2D9EE887009BBCC0 /* Alert.swift */; };
 		15973FB72DA4323F00652555 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15973FB62DA4323F00652555 /* User.swift */; };
+		15973FBA2DA445BC00652555 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15973FB92DA445BC00652555 /* EmptyStateView.swift */; };
+		15973FBC2DA449BD00652555 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15973FBB2DA449BD00652555 /* Order.swift */; };
 		159B6BD02D9DC56F00E61294 /* AppetizerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159B6BCF2D9DC56F00E61294 /* AppetizerListView.swift */; };
 		159B6BD22D9DC5AA00E61294 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159B6BD12D9DC5AA00E61294 /* AccountView.swift */; };
 		159B6BD42D9DC5BC00E61294 /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159B6BD32D9DC5BC00E61294 /* OrderView.swift */; };
@@ -35,6 +37,8 @@
 		1525BAB82D9EE675009BBCC0 /* AppetizersListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppetizersListViewModel.swift; sourceTree = "<group>"; };
 		1525BABA2D9EE887009BBCC0 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		15973FB62DA4323F00652555 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		15973FB92DA445BC00652555 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
+		15973FBB2DA449BD00652555 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		159B6BCF2D9DC56F00E61294 /* AppetizerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppetizerListView.swift; sourceTree = "<group>"; };
 		159B6BD12D9DC5AA00E61294 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		159B6BD32D9DC5BC00E61294 /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
@@ -67,6 +71,7 @@
 				1525BAAD2D9EDD67009BBCC0 /* Home */,
 				1525BAAE2D9EDDA9009BBCC0 /* Account */,
 				1525BAAF2D9EDDBD009BBCC0 /* Order */,
+				15973FB82DA4457400652555 /* EmptyStates */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -102,6 +107,7 @@
 			children = (
 				1525BAA62D9ED68D009BBCC0 /* Appetizer.swift */,
 				15973FB62DA4323F00652555 /* User.swift */,
+				15973FBB2DA449BD00652555 /* Order.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -132,6 +138,14 @@
 				15DF89F52DA04FE200D0B52C /* AccountViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		15973FB82DA4457400652555 /* EmptyStates */ = {
+			isa = PBXGroup;
+			children = (
+				15973FB92DA445BC00652555 /* EmptyStateView.swift */,
+			);
+			path = EmptyStates;
 			sourceTree = "<group>";
 		};
 		15C4DA372D9DC49B0041A308 = {
@@ -248,6 +262,7 @@
 				1525BAA72D9ED68D009BBCC0 /* Appetizer.swift in Sources */,
 				15DF89F62DA04FE200D0B52C /* AccountViewModel.swift in Sources */,
 				1525BAB92D9EE675009BBCC0 /* AppetizersListViewModel.swift in Sources */,
+				15973FBC2DA449BD00652555 /* Order.swift in Sources */,
 				1525BAB62D9EDF8E009BBCC0 /* APError.swift in Sources */,
 				15DF89ED2DA038F300D0B52C /* RemoteImage.swift in Sources */,
 				159B6BD22D9DC5AA00E61294 /* AccountView.swift in Sources */,
@@ -260,6 +275,7 @@
 				1525BABB2D9EE887009BBCC0 /* Alert.swift in Sources */,
 				159B6BD02D9DC56F00E61294 /* AppetizerListView.swift in Sources */,
 				159B6BD42D9DC5BC00E61294 /* OrderView.swift in Sources */,
+				15973FBA2DA445BC00652555 /* EmptyStateView.swift in Sources */,
 				15DF89F92DA051B900D0B52C /* String+Ext.swift in Sources */,
 				15DF89F42DA047FC00D0B52C /* XDismissButton.swift in Sources */,
 			);

@@ -16,6 +16,7 @@ struct AppetizerListView: View {
             NavigationStack {
                 List(vm.appetizers) { appetizer in
                     AppetizerCellView(appetizer: appetizer)
+                        .listRowSeparator(.hidden)
                         .onTapGesture {
                             withAnimation(.easeInOut) {
                                 vm.isShowingDetail = true
@@ -26,8 +27,8 @@ struct AppetizerListView: View {
                 .listStyle(PlainListStyle())
                 .navigationTitle("Appetizers")
             }
-            .onAppear {
-                vm.getAppetizers()
+            .task {
+                await vm.getAppetizers()
             }
             .blur(radius: vm.isShowingDetail ? 20 : 0)
             .disabled(vm.isShowingDetail)
@@ -39,7 +40,8 @@ struct AppetizerListView: View {
             
             if vm.isLoading {
                 ProgressView()
-                    .foregroundStyle(.brandPrimary)
+                    .tint(.brandPrimary)
+                    .scaleEffect(2)
             }
         }
         .alert(vm.alertItem?.title ?? "",

@@ -26,10 +26,8 @@ struct OrderView: View {
                         print("Place order")
                     } label: {
                         Text("$\(order.totalPrice, specifier: "%.2f") - Add to Order")
-                            .font(.title3)
                     }
-                    .buttonStyle(.borderedProminent)
-                    .tint(.brandPrimary)
+                    .modifier(StandardButtonStyle())
                     .padding(.bottom, 30)
                 }
                 if order.items.isEmpty {

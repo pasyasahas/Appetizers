@@ -17,36 +17,20 @@ final class NetworkManager {
     
     private init() {}
     
-    func getAppetizers(completion: @escaping (Result<[Appetizer], APError>) -> ()) {
-        guard let url = URL(string: appetizerURL) else {
-            completion(.failure(.invalidURL))
-            return
-        }
+    
+    func getAppetizers() async throws -> [Appetizer] {
+        guard let url = URL(string: appetizerURL) else { throw APError.invalidURL }
         
-        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, response, error in
-            if let _ = error {
-                completion(.failure(.unableToComplete))
-                return
-            }
-            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                completion(.failure(.invalidResponse))
-                return
-            }
-            guard let data = data else {
-                completion(.failure(.invalidData))
-                return
-            }
+        let (data, response) = try await URLSession.shared.data(from: url)
+        guard let response = response as? HTTPURLResponse, response.statusCode == 200 else { throw APError.invalidResponse }
+        
+        do {
+            let decoder = JSONDecoder()
             
-            do {
-                let decoder = JSONDecoder()
-                
-                let decodedResponse =  try decoder.decode(AppetizerResponse.self, from: data)
-                completion(.success(decodedResponse.request))
-            } catch {
-                completion(.failure(.unableToComplete))
-            }
+            return  try decoder.decode(AppetizerResponse.self, from: data).request
+        } catch {
+            throw APError.invalidData
         }
-        task.resume()
     }
     
     
@@ -64,7 +48,7 @@ final class NetworkManager {
         }
         
         let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, response, error in
-            guard let data = data, let image = UIImage(data: data) else {
+            guard let data, let image = UIImage(data: data) else {
                 completion(nil)
                 return
             }

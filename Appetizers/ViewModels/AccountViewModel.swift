@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@MainActor
 final class AccountViewModel: ObservableObject {
     
     @AppStorage("user") private var userData: Data?
@@ -31,7 +32,7 @@ final class AccountViewModel: ObservableObject {
     
     
     func retriveUser() {
-        guard let userData = userData else { return }
+        guard let userData else { return }
         
         do {
             user = try JSONDecoder().decode(User.self, from: userData)
